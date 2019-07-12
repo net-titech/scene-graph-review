@@ -3,7 +3,7 @@
 - Conference: [NeurIPS 2018](https://papers.nips.cc/paper/7337-linknet-relational-embedding-for-scene-graph)
 - Code: [Unofficial](https://github.com/jiayan97/linknet-pytorch)
 - Authors:
-    - Sanghyun Woo, Dahun Kim, Donghyeon Cho, and In So Kweon - KAIST, South Korea
+    - Sanghyun Woo, Dahun Kim, Donghyeon Cho, and In So Kweon - _KAIST, South Korea_
 
 This paper proposes LinkNet, a new model for scene graph generation. LinkNet model consists of three modules.
 1. Object relational embedding
@@ -25,7 +25,7 @@ $\oplus$ denotes elementwise summation. $O_1$ can be considered as applying a gr
 
 ### 2. Global context encoding (GCE)
 $$ c \in \mathbb{R}^{512} - \text{Average pooling of RPN image featurs}$$
-Features $c$ is concatenated with other RPN featurs to get $o_i$.
+Feature vector $c$ is concatenated with other RPN featurs to get $o_i$.
 
 ### 3. Geometric layout encoding
 This encodes relative location and scale information of an object.
