@@ -1,7 +1,7 @@
 # scene-graph-review
 Review papers on scene graph
 
-## Table of    content
+## Table of content
 1. Introduction
 
     1.1. Problem statement, why scene graph
@@ -45,4 +45,10 @@ Review papers on scene graph
 7. Conclusions
 
 
-
+## *List of figures*
+- Visualization (tree?) of problems related to scene graphs
+- Notation table
+- Table to describle input and output
+- Table of methods and approaches 
+- Table of methods and features (+advantages/disadvantages)
+- Table of methods and model size + speed
