@@ -1,3 +1,18 @@
+---
+layout: post
+title: "LinkNet: Relational Embedding for Scene Graph - A Summary"
+excerpt: A summary of LinkNet paper.
+categories:
+ - Deep Neural Networks
+ - Graph Neural Networks
+ - Machine Learning
+comments: true
+author: Kaushalya
+date: "2019-07-12"
+published: true
+category: blog
+---
+
 # LinkNet: Relational Embedding for Scene Graph
 
 - Conference: [NeurIPS 2018](https://papers.nips.cc/paper/7337-linknet-relational-embedding-for-scene-graph)
