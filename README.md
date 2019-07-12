@@ -45,7 +45,7 @@ Review papers on scene graph
 7. Conclusions
 
 
-## *List of figures*
+## List of figures
 - Visualization (tree?) of problems related to scene graphs
 - Notation table
 - Table to describle input and output
