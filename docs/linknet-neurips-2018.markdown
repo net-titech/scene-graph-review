@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "LinkNet: Relational Embedding for Scene Graph - A Summary"
 excerpt: A summary of LinkNet paper.
 categories:
@@ -10,7 +10,6 @@ comments: true
 author: Kaushalya
 date: "2019-07-12"
 published: true
-category: blog
 ---
 
 # LinkNet: Relational Embedding for Scene Graph
