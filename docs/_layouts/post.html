@@ -1,49 +1,69 @@
 ---
-layout: page
+layout: default
 ---
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<a class="btn" href= "{{ site.url }}/" >
+  Home
+</a>
+{% if page.image.feature %}
+<div class="post-image-feature">
+  <img class="feature-image" src=
+  {% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
+  "{{ page.image.feature }}"
+  {% else %}
+  "{{ site.url }}/img/{{ page.image.feature }}"
+  {% endif %}
+  alt="{{ page.title }} feature image">
 
-{% if page.image and page.headerImage %}
-    <img class="title-image" src="{{ page.image }}" alt="{{ page.title }}">
+  {% if page.image.credit %}
+  <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
+  {% endif %}
+</div><!-- /.image-wrap -->
 {% endif %}
 
-<h1 class="title">{{ page.title }}</h1>
 
-<span class="date">
-    <time datetime="{{ page.date | date:"%d-%m-%Y" }}">{{ page.date | date: "%A. %B %d, %Y" }}</time>
-    {% if site.read-time %} - {% include read-time.html %}{% endif %}
-</span>
+<div id="post">
+  <header class="post-header">
+    <h1 title="{{ page.title }}">{{ page.title }}</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        {{ page.date | date: "%-d %b %Y" | upcase }}
+      </span>
+      •
+      {% include read_time.html %}
+    </span>
 
-{% if site.show-tags %}
-    <div class="post-tags">
-        {% for tag in page.tags %}
-            <a class="item" href="{{ site.url }}/tags/#{{ tag | slugify }}">{{ tag }}</a>
-        {% endfor %}
-    </div>
-{% endif %}
+  </header>
 
-{{content}}
+  <article class="post-content">
+    {{ content }}
+  </article>
+</div>
 
-{% if site.post-advance-links contains page.category %}
-    <div class="blog-navigation">
-        {% if page.previous.url %}
-            <a class="prev" href="{{ site.url }}{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a>
-        {% else %}
-            <a class="prev"></a>
-        {% endif %}
-        {% if page.next.url %}
-            <a class="next" href="{{ site.url }}{{ page.next.url }}">{{ page.next.title }} &raquo;</a>
-        {% endif %}
-    </div>
-{% endif %}
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text={{ site.url }}{{ page.url }}" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u={{ site.url }}{{ page.url }}" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url={{ site.url }}{{ page.url }}" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
 
-{% if site.related %}
-    {% include related.html %}
-{% endif %}
-
-{% if site.show-author %}
-    {% include author.html %}
-{% endif %}
-
-{% if site.disqus.categories contains page.category %}
-    {% include disqus.html %}
+{% if site.owner.disqus-shortname and page.comments == true %}
+<div id="disqus_thread"></div>
+{% include disqus.html %}
 {% endif %}

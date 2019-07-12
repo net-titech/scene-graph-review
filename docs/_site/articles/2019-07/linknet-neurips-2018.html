@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>LinkNet: Relational Embedding for Scene Graph - A Summary</title>
+  <meta name="description" content="A summary of LinkNet paper.">
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+
+  <link rel="canonical" href="http://localhost:4000/articles/2019-07/linknet-neurips-2018">
+  <link rel="alternate" type="application/rss+xml" title="CREST - Scene Graph Project" href="http://localhost:4000/feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <a href="http://localhost:4000/" class="author_name"></a>
+  <span class="author_job"></span>
+  <span class="author_bio mbm"></span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="http://localhost:4000/">home</a>
+      </li>
+       
+      <li class="nav-item">
+        <a href="http://localhost:4000/blog/">Blog</a>
+      </li>
+            
+      <li class="nav-item">
+        <a href="http://localhost:4000/tags">Tags</a>
+      </li>
+           
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<a class="btn" href= "http://localhost:4000/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="LinkNet: Relational Embedding for Scene Graph - A Summary">LinkNet: Relational Embedding for Scene Graph - A Summary</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        12 JUL 2019
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    1 min read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <h1 id="linknet-relational-embedding-for-scene-graph">LinkNet: Relational Embedding for Scene Graph</h1>
+
+<ul>
+  <li>Conference: <a href="https://papers.nips.cc/paper/7337-linknet-relational-embedding-for-scene-graph">NeurIPS 2018</a></li>
+  <li>Code: <a href="https://github.com/jiayan97/linknet-pytorch">Unofficial</a></li>
+  <li>Authors:
+    <ul>
+      <li>Sanghyun Woo, Dahun Kim, Donghyeon Cho, and In So Kweon - <em>KAIST, South Korea</em></li>
+    </ul>
+  </li>
+</ul>
+
+<p>This paper proposes LinkNet, a new model for scene graph generation. LinkNet model consists of three modules.</p>
+<ol>
+  <li>Object relational embedding</li>
+  <li>Global context encoding (GCE)</li>
+  <li>Geometric layout encoding</li>
+</ol>
+
+<p><strong>Input</strong> : Object proposals and features from a region proposal network (RPN).
+Each object proposal is represented as a vector \( o_i = (f_i^{RoI}, K_0l_i, c) \). \( K_0 \) is a parameter matrix which maps the distribution of predicted labels \( l_i \) of each of the object proposal \( i=1,…, N \).</p>
+
+<h3 id="1-object-relational-embedding">1. Object relational embedding</h3>
+<p>Object features are learnt using a graph-based approach.</p>
+
+<script type="math/tex; mode=display">\mathbf{R}_{1}=\operatorname{softmax}\left(\left(\mathbf{O}_{0} \mathbf{W}_{1}\right)\left(\mathbf{O}_{0} \mathbf{U}_{1}\right)^{\mathbf{T}}\right) \in \mathbb{R}^{\mathbf{N} \times \mathbf{N}} - \text{Relational embedding}</script>
+
+<script type="math/tex; mode=display">\mathbf{O}_{1}=\mathbf{O}_{0} \oplus f c_{0}\left(\left(\mathbf{R}_{\mathbf{1}}\left(\mathbf{O}_{0} \mathbf{H}_{1}\right)\right)\right) \in \mathbb{R}^{\mathbf{N} \times 4808}</script>
+
+<script type="math/tex; mode=display">\mathbf{O}_{2}=f c_{1}\left(\mathbf{O}_{1}\right) \in \mathbb{R}^{\mathbf{N} \times 256} - \text{Relation-aware embedding}</script>
+
+<p>$\oplus$ denotes elementwise summation. \( O_1 \) can be considered as applying a graph convolutional (GCN) layer with a residual connection. The resultant features \( O_2 \) is once again fed into a similar set of layers to get \( O_4 \in \mathbb{R}^{N \times C_{obj}} \).</p>
+
+<h3 id="2-global-context-encoding-gce">2. Global context encoding (GCE)</h3>
+<p>\( c \in \mathbb{R}^{512} - \text{Average pooling of RPN image featurs} \)</p>
+
+<p>Feature vector $c$ is concatenated with other RPN featurs to get \( o_i \).</p>
+
+<h3 id="3-geometric-layout-encoding">3. Geometric layout encoding</h3>
+<p>This encodes relative location and scale information of an object.</p>
+
+<script type="math/tex; mode=display">\mathbf{b}_{\mathbf{o} | \mathbf{s}}=\left(\frac{\mathbf{x}_{\mathbf{o}}-\mathbf{x}_{\mathbf{s}}}{\mathbf{w}_{\mathbf{s}}}, \frac{\mathbf{y}_{\mathbf{o}}-\mathbf{y}_{\mathbf{s}}}{\mathbf{h}_{\mathbf{s}}}, \log \left(\frac{\mathbf{w}_{\mathbf{o}}}{\mathbf{w}_{\mathbf{s}}}\right), \log \left(\frac{\mathbf{h}_{\mathbf{o}}}{\mathbf{h}_{\mathbf{s}}}\right)\right)</script>
+
+<p>\( x_o, y_o, h_o, w_o \): coordinates, height, and width of the object proposal of object \( o \)
+$o$ and $s$ stand for object and subject respectively. These features are used for learning <em>edge-relational embeddings</em>.</p>
+
+<h3 id="loss-function">Loss function</h3>
+<p><script type="math/tex">\mathcal{L}_{\text {final}}=\mathcal{L}_{\text {obj}_{-} c l s}+\lambda_{1} \mathcal{L}_{\text {rel}_{-} c l s}+\lambda_{2} \mathcal{L}_{\text {gce}}</script>
+By default $\lambda_1$ and $\lambda_2$ are set to 1.</p>
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/articles/2019-07/linknet-neurips-2018" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/2019-07/linknet-neurips-2018" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://localhost:4000/articles/2019-07/linknet-neurips-2018" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=http://localhost:4000/articles/2019-07/linknet-neurips-2018" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=http://localhost:4000/articles/2019-07/linknet-neurips-2018" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+
+        <footer>
+  &copy; 2019 Murata Laboratory. Official website: <a href="http://www.net.c.titech.ac.jp">www.net.c.titech.ac.jp</a>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://localhost:4000/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/main.js"></script>
+
+
+</body>
+</html>

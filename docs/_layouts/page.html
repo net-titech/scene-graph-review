@@ -1,11 +1,25 @@
 ---
 layout: default
 ---
-{% include header.html %}
-
-{{content}}
-
-{% include footer.html %}
 <script type="text/javascript" async
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
+  <div id="page">
+    <header class="page-header">
+      <h2>{{ page.title }}</h2>
+    </header>
+
+    <article class="page-content">
+      {{ content }}
+    </article>
+
+  {% include footer.html %}
+
+  </div><!-- end page content -->
+
+
+  {% if site.owner.disqus-shortname and page.comments == true %}
+  <div id="disqus_thread"></div>
+  {% include disqus.html %}
+  {% endif %}

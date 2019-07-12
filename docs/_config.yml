@@ -1,1 +1,72 @@
-theme: jekyll-theme-cayman
+#
+###################################
+# Site wide configuration
+####################################
+#
+title: CREST - Scene Graph Project
+email: 
+description: Place for sharing resources on scene graphs
+url: 
+
+
+#
+###################################
+# Jekyll configuration
+####################################
+#
+timezone:          Asia/Tokyo
+# markdown:          kramdown
+highlighter:       rouge
+excerpt_separator: <!--more-->
+permalink:         /articles/:year-:month/:title
+
+# kramdown:
+#   auto_ids: true
+#   footnote_nr: 1
+#   entity_output: as_char
+#   toc_levels: 1..6
+#   enable_coderay: false
+
+#
+###################################
+# Site Owner configuration
+####################################
+#
+owner:
+  name: Murata Laboratory
+  avatar: net-logo.png
+  job: "Complex Network @ Titech"
+  bio:
+  email:
+  disqus-shortname:
+  twitter: 
+  facebook: 
+  google:
+    plus: 
+    analytics:
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: net-titech 
+  gitlab: 
+  stackoverflow: 
+  linkedin: 
+  skype: 
+  xing:
+  instagram: 
+  lastfm: 
+  tumblr: 
+  pinterest: 
+  foursquare: 
+  steam: 
+  dribbble: 
+  youtube:
+  soundcloud: 
+  weibo: 
+  flickr:
+  500px: 
+  codepen:
+
+gems:
+    - jekyll-redirect-from
