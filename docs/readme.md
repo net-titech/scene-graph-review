@@ -1,3 +1,3 @@
-## Scene Graphs docs site
+## CREST Scene Graphs
 
-These posts will be hosted at http://muratalab.ml/scene-graph-review/.
+Project page for Scene Graphs.

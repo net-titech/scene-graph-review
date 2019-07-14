@@ -4,9 +4,9 @@
 ####################################
 #
 title: CREST - Scene Graph Project
-email: 
+email:
 description: Place for sharing resources on scene graphs
-url: 
+url:
 
 
 #
@@ -18,7 +18,7 @@ timezone:          Asia/Tokyo
 # markdown:          kramdown
 highlighter:       rouge
 excerpt_separator: <!--more-->
-permalink:         /articles/:year-:month/:title
+permalink:         scene-graph-review/articles/:year-:month/:title
 
 # kramdown:
 #   auto_ids: true
@@ -39,33 +39,33 @@ owner:
   bio:
   email:
   disqus-shortname:
-  twitter: 
-  facebook: 
+  twitter:
+  facebook:
   google:
-    plus: 
+    plus:
     analytics:
     verify:
     ad-client:
     ad-slot:
   bing-verify:
-  github: net-titech 
-  gitlab: 
-  stackoverflow: 
-  linkedin: 
-  skype: 
+  github: net-titech
+  gitlab:
+  stackoverflow:
+  linkedin:
+  skype:
   xing:
-  instagram: 
-  lastfm: 
-  tumblr: 
-  pinterest: 
-  foursquare: 
-  steam: 
-  dribbble: 
+  instagram:
+  lastfm:
+  tumblr:
+  pinterest:
+  foursquare:
+  steam:
+  dribbble:
   youtube:
-  soundcloud: 
-  weibo: 
+  soundcloud:
+  weibo:
   flickr:
-  500px: 
+  500px:
   codepen:
 
 gems:
