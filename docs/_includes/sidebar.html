@@ -15,11 +15,14 @@
       <li class="nav-item">
         <a href="{{ site.url }}/scene-graph-review">Scene-Graphs</a>
       </li>
-      {% for page in site.pages %} {% if page.title %}
       <li class="nav-item">
-        <a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a>
+        <a href="{{ site.url }}/scene-graph-review/blog">blog</a>
       </li>
-      {% endif %} {% endfor %}
+      <!-- {% for page in site.pages %} {% if page.title %} -->
+      <!-- <li class="nav-item">
+        <a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a>
+      </li> -->
+      <!-- {% endif %} {% endfor %} -->
     </ul>
   </nav>
   {% include social-links.html %}
