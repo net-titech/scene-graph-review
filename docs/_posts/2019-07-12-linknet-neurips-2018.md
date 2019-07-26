@@ -51,10 +51,11 @@ This encodes relative location and scale information of an object.
 $$
 \mathbf{b}_{\mathbf{o} | \mathbf{s}}=\left(\frac{\mathbf{x}_{\mathbf{o}}-\mathbf{x}_{\mathbf{s}}}{\mathbf{w}_{\mathbf{s}}}, \frac{\mathbf{y}_{\mathbf{o}}-\mathbf{y}_{\mathbf{s}}}{\mathbf{h}_{\mathbf{s}}}, \log \left(\frac{\mathbf{w}_{\mathbf{o}}}{\mathbf{w}_{\mathbf{s}}}\right), \log \left(\frac{\mathbf{h}_{\mathbf{o}}}{\mathbf{h}_{\mathbf{s}}}\right)\right) $$
 
-\\( x_o, y_o, h_o, w_o \\): coordinates, height, and width of the object proposal of object \\( o \\)
-$o$ and $s$ stand for object and subject respectively. These features are used for learning _edge-relational embeddings_.
+\\( x_o, y_o, h_o, w_o \\): coordinates, height, and width of the object proposal of object \\( o \\).
+
+\\( o \\) and \\( s \\) stand for object and subject respectively. These features are used for learning _edge-relational embeddings_.
 
 ### Loss function
 $$
 \mathcal{L}_{\text {final}}=\mathcal{L}_{\text {obj}_{-} c l s}+\lambda_{1} \mathcal{L}_{\text {rel}_{-} c l s}+\lambda_{2} \mathcal{L}_{\text {gce}} $$
-By default $\lambda_1$ and $\lambda_2$ are set to 1.
+By default \\( \lambda_1 \\) and \\( \lambda_2 \\) are set to 1.
